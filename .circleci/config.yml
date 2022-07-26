@@ -23,7 +23,10 @@ workflows:
                   rm -rf compose-samples
           override-emulator-args: ''
           post-emulator-wait-steps: 
-            - run: adb devices
+            - run: 
+              name: Create Android Emulator 
+              command: SYSTEM_IMAGES="system-images;android-32;google_apis;x86_64" sdkmanager "$SYSTEM_IMAGES" echo "no" | avdmanager --verbose create avd --force -n Pixel_3a_API_32_x86 -k "$SYSTEM_IMAGES" --device pixel
+    
           matrix:
             parameters:
               system-image:
