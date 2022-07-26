@@ -22,6 +22,7 @@ workflows:
                   cp -r compose-samples/Jetchat/* .
                   rm -rf compose-samples
             - run: adb devices
+          override-emulator-args: ''
           matrix:
             parameters:
               system-image:
