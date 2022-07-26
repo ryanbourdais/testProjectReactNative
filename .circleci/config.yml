@@ -22,7 +22,7 @@ workflows:
                   cp -r compose-samples/Jetchat/* .
                   rm -rf compose-samples
           override-emulator-args: ''
-          post-emulator-launch-assemble-command: adb devices
+          post-emulator-wait-steps: adb devices
           matrix:
             parameters:
               system-image:
