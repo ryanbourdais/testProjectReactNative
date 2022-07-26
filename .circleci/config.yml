@@ -22,7 +22,7 @@ workflows:
                   cp -r compose-samples/Jetchat/* .
                   rm -rf compose-samples
           gpu: 'on'
-          additional-avd-args: -verbose
+          additional-avd-args: --verbose
           matrix:
             parameters:
               system-image:
