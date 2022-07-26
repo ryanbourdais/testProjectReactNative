@@ -1,0 +1,30 @@
+version: 2.1
+orbs:
+  android: circleci/android@2.1.2
+workflows:
+  test-deploy:
+    jobs:
+      - android/run-ui-tests:
+          name: "ui-tests-<<matrix.system-image>>"
+          executor:
+            name: android/android-machine
+            tag: "2022.06.2"
+          checkout: false
+          pre-steps:
+            - run:
+                name: Setup project
+                command: |
+                  git clone https://github.com/android/compose-samples
+                  cd compose-samples
+                  # pin the revision for consistency
+                  git checkout f1e930dbe6f209dde9ceb5d3419bbf314aabcb58
+                  cd ..
+                  cp -r compose-samples/Jetchat/* .
+                  rm -rf compose-samples
+          matrix:
+            parameters:
+              system-image:
+                - system-images;android-29;google_apis;x86_64
+                - system-images;android-30;google_apis;x86_64
+                - system-images;android-31;google_apis;x86_64
+                - system-images;android-32;google_apis;x86_64
