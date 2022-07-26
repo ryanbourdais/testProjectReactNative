@@ -28,4 +28,4 @@ workflows:
                 - system-images;android-30;google_apis;x86_64
                 - system-images;android-31;google_apis;x86_64
                 - system-images;android-32;google_apis;x86_64
-                 - system-images;android-32;default;x86_64
+                - system-images;android-32;default;x86_64
