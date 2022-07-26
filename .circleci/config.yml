@@ -21,6 +21,7 @@ workflows:
                   cd ..
                   cp -r compose-samples/Jetchat/* .
                   rm -rf compose-samples
+            - run: adb devices
           matrix:
             parameters:
               system-image:
