@@ -21,8 +21,7 @@ workflows:
                   cd ..
                   cp -r compose-samples/Jetchat/* .
                   rm -rf compose-samples
-          gpu: 'on'
-          additional-avd-args: --verbose
+          override-emulator-args: --verbose -gpu on
           matrix:
             parameters:
               system-image:
